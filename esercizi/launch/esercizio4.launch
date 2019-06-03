@@ -1,0 +1,28 @@
+<launch>
+	<!--Turtlesim Node-->
+	<node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+
+	<!--spawn two more turltes-->
+	<node pkg="rosservice" type="rosservice" name="create_turtle2" args='call --wait /spawn "{x: 2.0, y: 4.0, theta: 0.0, name: turtle2}"'/>
+
+	<node pkg="rosservice" type="rosservice" name="create_turtle3" args='call --wait /spawn "{x: 4.0, y: 1.0, theta: 1.0, name: turtle3}"'/>
+
+	<node pkg="rosservice" type="rosservice" name="create_turtle4" args='call --wait /spawn "{x: 7.0, y: 7.0, theta: 2.0, name: turtle4}"'/>
+
+	<node name="move_robot_1" pkg="esercizi" type="one_point_gathering" output="screen">
+		<param name="robot_name" value="turtle1"/>
+	</node>
+
+	<node name="move_robot_2" pkg="esercizi" type="one_point_gathering" output="screen">
+		<param name="robot_name" value="turtle2"/>
+	</node>
+
+	<node name="move_robot_3" pkg="esercizi" type="one_point_gathering" output="screen">
+		<param name="robot_name" value="turtle3"/>
+	</node>
+
+	<node name="move_robot_4" pkg="esercizi" type="one_point_gathering" output="screen">
+		<param name="robot_name" value="turtle4"/>
+	</node> 
+
+</launch>

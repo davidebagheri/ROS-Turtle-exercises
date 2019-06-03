@@ -1,0 +1,8 @@
+<launch>
+	<node name="turtle" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+
+	<node name="wall_avoidance" pkg="esercizi" type="wall_avoidance" output="screen">
+	</node>
+
+</launch>
+  

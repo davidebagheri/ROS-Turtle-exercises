@@ -1,0 +1,18 @@
+<launch>
+	<arg name="x_goal" default="'10'" />
+	<arg name="y_goal" default="'4'" />
+
+	<!--Turtlesim Node-->
+	<node pkg="turtlesim" type="turtlesim_node" name="turtle1"/>
+
+	<!--spawn two more turltes-->
+	<node pkg="rosservice" type="rosservice" name="create_turtle2" args='call --wait /spawn "{x: 5.0, y: 7.0, theta: 0.0, name: turtle2}"'/>
+
+	<node pkg="rosservice" type="rosservice" name="create_turtle3" args='call --wait /spawn "{x: 7.0, y: 5.0, theta: 1.0, name: turtle3}"'/>
+	
+	<node name="move_robot_1" pkg="esercizi" type="obstacle_avoidance">
+		<param name="x_goal" value="$(arg x_goal)"/>
+		<param name="y_goal" value="$(arg y_goal)"/>
+	</node>
+
+</launch>

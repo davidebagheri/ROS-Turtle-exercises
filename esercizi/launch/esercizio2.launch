@@ -1,0 +1,16 @@
+<launch>
+	<arg name="linear_sat" default="'-1'" />
+	<arg name="angular_sat" default="'-1'" />
+
+	<node name="turtle" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+
+	<node name="vel_controller" pkg="esercizi" type="vel_controller" output="screen">
+		<param name="linear_sat" value="$(arg linear_sat)"/>
+		<param name="angular_sat" value="$(arg angular_sat)"/>
+	</node>
+
+	<node name="des_vel_publisher" pkg="esercizi" type="des_vel_publisher" output="screen" args="1 1">
+	</node>
+
+</launch>
+  

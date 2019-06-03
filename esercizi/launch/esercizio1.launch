@@ -1,0 +1,11 @@
+<launch>
+	<node name="turtle" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+
+	<node name="turtle_teleoperation" pkg="turtlesim" type="turtle_teleop_key" output="screen">
+	</node>
+
+	<node name="rviz_display" pkg="esercizi" type="rviz_display" output="screen">
+	</node>
+
+</launch>
+  
