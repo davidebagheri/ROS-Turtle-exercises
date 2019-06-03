@@ -55,13 +55,11 @@ void wall_avoidance::Callback(const turtlesim::Pose::ConstPtr& msg){
 	// if the turtle gets near the upper or lower bound
 	else if ((y >= (CEILING - DISTANCE)) || (y <= FLOOR + DISTANCE)){
 		 cmd.angular.z = k * (atan2(copysign(1.0, (FLOOR+CEILING)/2-y), 0) - theta);	// theta_dot = k*(angle_ref - theta), angle_ref = pi/2 (floor) or 3/2pi (ceiling)
-		 ROS_INFO("NEAR Y BOUND!!!");
 	}
 
 	// if the turtle gets near the right or left bound
 	else if ((x <= WALL_LEFT + DISTANCE) || (x >= WALL_RIGHT - DISTANCE)){
 		cmd.angular.z = k * (atan2(0, copysign(1.0, WALL_RIGHT/2-x)) - theta);	// theta_dot = k*(angle_ref - theta), angle_ref = 0 (left wall) or pi (right wall)
-		 ROS_INFO("NEAR X BOUND!!!");
 	}
 
 	// Apply positive and negative saturations
